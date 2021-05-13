@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
+import django_heroku
 
 import os
 import cloudinary
@@ -26,7 +27,7 @@ SECRET_KEY = '&v359^cys*ac))cuu006i@9c9*q1xk8x0qs@_^-iyxc@f$95zx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['debsocfarwell.herokuapp.com']
 
 
 # Application definition
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -121,9 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-
-
-
+STATIC_ROOT= os.path.join('BASE_DIR','staticfiles')
 STATIC_URL = '/static/'
 
 
@@ -132,3 +132,6 @@ cloudinary.config(
   api_key = "685276913473493", 
   api_secret = "dOR5zagNC82_MTh0GwwdopY1sdU" 
 )
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())

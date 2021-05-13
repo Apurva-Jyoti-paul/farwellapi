@@ -26,6 +26,7 @@ class awards(models.Model):
 
     info= models.ForeignKey(Seniorinfo,related_name='award',on_delete=models.CASCADE)
     myaward = models.CharField(max_length=100,null=True)
+    pict = CloudinaryField('pict',null=True)
     
     def __str__(self):
         return self.myaward
