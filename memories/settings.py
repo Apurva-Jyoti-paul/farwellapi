@@ -27,7 +27,7 @@ SECRET_KEY = '&v359^cys*ac))cuu006i@9c9*q1xk8x0qs@_^-iyxc@f$95zx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['debsocfarwell.herokuapp.com','https://localhost:3000']
+ALLOWED_HOSTS = ['debsocfarwell.herokuapp.com','http://localhost:3000','localhost:3000','*']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+    'corsheaders',
     'webapp',
 ]
 
@@ -133,5 +134,8 @@ cloudinary.config(
   api_secret = "dOR5zagNC82_MTh0GwwdopY1sdU" 
 )
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
