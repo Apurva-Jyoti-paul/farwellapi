@@ -9,6 +9,7 @@ dj-database-url==0.5.0
 Django==2.2.15
 django-allauth==0.44.0
 django-cloudinary-storage==0.2.3
+django-cors-headers==3.7.0
 django-heroku==0.3.1
 django-nested-inline==0.4.2
 djangorestframework==3.12.4
