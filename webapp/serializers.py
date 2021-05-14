@@ -1,6 +1,7 @@
 #from memories.webapp.models import ratings
+#from memories.webapp.models import fav_place
 from rest_framework import serializers
-from webapp.models import Senior,Seniorinfo,awards,imagegallery,ratings
+from webapp.models import Senior,Seniorinfo,awards,imagegallery,ratings,fav_place
 
 class SeniorSerializer(serializers.ModelSerializer):
 
@@ -28,6 +29,12 @@ class ratingsSerializer(serializers.ModelSerializer):
         model= ratings
         fields='__all__'
 
+class fav_placeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model= fav_place
+        fields = '__all__'
+
 
 class SeniorinfoSerializer(serializers.ModelSerializer):
     award = awardsSerializer(many=True,read_only=True)
@@ -35,10 +42,11 @@ class SeniorinfoSerializer(serializers.ModelSerializer):
     #awards = serializers.RelatedField(many=True, read_only=True)
     gall = imagegallerySerializer(many=True,read_only=True)
     rat = ratingsSerializer(many=True,read_only=True)
+    favplace= fav_placeSerializer(many=True,read_only=True)
 
     class Meta:
         model= Seniorinfo
-        fields= ('description','sname','pic','award','gall','rat')
+        fields= ('description','sname','pic','award','gall','rat','favplace')
         
         #fields ='__all__'
 

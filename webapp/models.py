@@ -47,6 +47,11 @@ class ratings(models.Model):
     def __str__(self):
         return self.name
 
+class fav_place(models.Model):
 
-   
+    senior = models.ForeignKey(Seniorinfo,related_name='favplace',on_delete=models.CASCADE)
+    imag = CloudinaryField('imag')
+    description = models.CharField(max_length=1000,null=True)
+    place = models.CharField(max_length=20,null=True)
+
 # Create your models here.
