@@ -55,3 +55,10 @@ class fav_place(models.Model):
     place = models.CharField(max_length=20,null=True)
 
 # Create your models here.
+
+
+class messages(models.Model):
+
+    senior= models.ForeignKey(Seniorinfo,related_name='message',on_delete=models.CASCADE)
+    comment= models.CharField(max_length=200,null=True)
+    author = models.CharField(max_length=15,null=True)

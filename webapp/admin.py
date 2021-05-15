@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Senior,Seniorinfo,awards,imagegallery, ratings,fav_place
+from .models import Senior,Seniorinfo,awards,imagegallery, messages, ratings,fav_place,messages
 
 
 
@@ -19,11 +19,15 @@ class fav_placeInline(admin.StackedInline):
     model = fav_place
     extra = 1
 
+class messagesInline(admin.StackedInline):
+    model = messages
+    extra = 3
+
 
 
 class SeniorinfoAdmin(admin.ModelAdmin):
     fields=['sname','description','description2','senior','pic']
-    inlines=[awardsInline,imagegalleryInline,ratingsInline,fav_placeInline]
+    inlines=[awardsInline,imagegalleryInline,ratingsInline,fav_placeInline,messagesInline]
 
 
 admin.site.register(Senior)
@@ -31,6 +35,9 @@ admin.site.register(Seniorinfo,SeniorinfoAdmin)
 admin.site.register(awards)
 admin.site.register(imagegallery)
 admin.site.register(ratings)
+admin.site.register(messages)
+
+
 
 
 
