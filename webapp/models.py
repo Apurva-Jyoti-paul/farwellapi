@@ -60,5 +60,5 @@ class fav_place(models.Model):
 class messages(models.Model):
 
     senior= models.ForeignKey(Seniorinfo,related_name='message',on_delete=models.CASCADE)
-    comment= models.CharField(max_length=200,null=True)
+    comment= models.CharField(max_length=1000,null=True)
     author = models.CharField(max_length=15,null=True)
