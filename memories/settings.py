@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&v359^cys*ac))cuu006i@9c9*q1xk8x0qs@_^-iyxc@f$95zx'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -132,9 +132,9 @@ STATIC_URL = '/static/'
 
 
 cloudinary.config( 
-  cloud_name = "paulserver", 
-  api_key = "685276913473493", 
-  api_secret = "dOR5zagNC82_MTh0GwwdopY1sdU" 
+  cloud_name = os.environ['cloud_name'],
+  api_key = os.environ['api_key'], 
+  api_secret = os.environ['api_secret'] 
 )
 
 
